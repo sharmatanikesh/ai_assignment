@@ -1,4 +1,4 @@
-# Automated TestCase Generator
+# AI ASSIGNMENT
 
 This project provides a tool to generate detailed testing instructions based on uploaded screenshots and optional context. It uses a multimodal language model to create test cases, which are displayed on the frontend in blocks organized by each screenshot.
 
