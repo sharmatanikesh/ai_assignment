@@ -20,7 +20,7 @@ This project provides a tool to generate detailed testing instructions based on 
 - **Additional Libraries**:
   - `google-generativeai`: A library to work with Google's generative AI models.
   - `Pillow`: For handling and displaying images.
-  - `markdown2`: 
+  - `python-dotenv`: A library to manage environment variables in `.env` files.
 
 ## Installation
 
