@@ -62,16 +62,22 @@ if testing_type!="":
     elif testing_type == "Web":
         code_generate = st.selectbox("Select testing framework (OPTIONAL)", ["Jest", "Cypress", "Selenium"])
 
-
-
 uploaded_images = st.file_uploader("Choose one or more images", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 images = []
 
 if uploaded_images:
+    # Resize and store the uploaded images
     for uploaded_image in uploaded_images:
         img = Image.open(uploaded_image)
-        images.append(img)
-        st.image(img, caption=f"Uploaded Image - {uploaded_image.name}", use_column_width=True)
+        resized_img = img.resize((200, 200))  # Resize the image to 200x200 pixels
+        images.append(resized_img)
+
+    # Display images in rows, 3 per row
+    for i in range(0, len(images), 3):
+        cols = st.columns(3)
+        for j, img in enumerate(images[i:i+3]):
+            with cols[j]:
+                st.image(img, caption=f"Image {i + j + 1}", use_column_width=True)
 
 # Text input field for user query
 user_input = st.text_input("Enter a query (OPTIONAL):")
@@ -80,7 +86,7 @@ user_input = st.text_input("Enter a query (OPTIONAL):")
 submit = st.button("Generate Test Instructions")
 
 if submit:
-    if not images:
+    if not uploaded_images:
         st.warning("Please upload at least one image to generate test instructions.")
     else:
         response = get_gemini_response(user_input, images, testing_type, code_generate)
