@@ -51,11 +51,11 @@ testing_type = st.selectbox("Select testing type (OPTIONAL):", ["", "Android", "
 code_generate = ""
 if testing_type!="":
     if testing_type == "Android":
-        code_generate = st.selectbox("Select testing framework (OPTIONAL)", ["JUnit", "Espresso", "Web"])
+        code_generate = st.selectbox("Select testing framework ", ["JUnit", "Espresso"])
     elif testing_type == "IOS":
-        code_generate = st.selectbox("Select testing language (OPTIONAL)", ["XCTest", "XCUITest", "KIF (Keep It Functional)"])
+        code_generate = st.selectbox("Select testing language ", ["XCTest", "XCUITest", "KIF (Keep It Functional)"])
     elif testing_type == "Web":
-        code_generate = st.selectbox("Select testing framework (OPTIONAL)", ["Jest", "Cypress", "Selenium"])
+        code_generate = st.selectbox("Select testing framework ", ["Jest", "Cypress", "Selenium"])
 
 uploaded_images = st.file_uploader("Choose one or more images", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 images = []
