@@ -29,8 +29,8 @@ def get_gemini_response(user_input, images, testing_type, code_generate):
     # Append testing type and code generation details if they are not null
     if testing_type and code_generate:
         full_prompt = (f"{base_prompt}"
-                       f"Testing Type: {testing_type}\n"
-                       f"Code Generation Framework/Language: {code_generate}\n\n"
+                       f"For testing type: {testing_type}\n"
+                       f"Also Generate Code  Framework/Language: {code_generate}\n\n"
                        f"Additional Details: {user_input}")
     elif testing_type:
         full_prompt = (f"{base_prompt}"
@@ -80,6 +80,9 @@ user_input = st.text_input("Enter a query (OPTIONAL):")
 submit = st.button("Generate Test Instructions")
 
 if submit:
-    response = get_gemini_response(user_input, images, testing_type, code_generate)
-    st.subheader("Generated Test Instructions")
-    st.write(response)
+    if not images:
+        st.warning("Please upload at least one image to generate test instructions.")
+    else:
+        response = get_gemini_response(user_input, images, testing_type, code_generate)
+        st.subheader("Generated Test Instructions")
+        st.write(response)
