@@ -48,7 +48,7 @@ I started by making a general description for the assignment so the prompt could
    Run the following command to install the necessary npm packages:
 
    ```bash
-    python3 -m venv venv
+    conda create  venv python==3.10
     source venv/bin/activate
    ```
 
