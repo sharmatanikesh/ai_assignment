@@ -32,13 +32,7 @@ This project provides a tool to generate detailed testing instructions based on 
 1. **Clone the repository** or download the files.
 
    ```bash
-   git clone https://github.com/jayni07/Automated-TestCase-Generator.git
-
-1. **Clone the repository** or download the files.
-
-   ```bash
-   git clone https://github.com/jayni07/Automated-TestCase-Generator.git
-   ```
+   git clone https://github.com/sharmatanikesh/ai_assignment
 
 2. **Navigate to the project directory**:
 
