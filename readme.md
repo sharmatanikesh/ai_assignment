@@ -1,6 +1,6 @@
 # AI ASSIGNMENT
 
-This project provides a tool to generate detailed testing instructions based on uploaded screenshots and optional context. It uses a multimodal language model to create test cases, which are displayed on the frontend in blocks organized by each screenshot.
+This project provides a tool to generate detailed testing instructions based on uploaded screenshots and optional context. It uses a multimodal language model to create test cases for each functionality, and the results are presented on the frontend in blocks organized by each screenshot. Each block includes the test cases along with the expected results.
 
 ## Prompt Strategy
 I started by making a general description for the assignment so the prompt could be used in different ways. After refining the prompt a few times, I got better results. I also added options for users to choose the target platform—Android, iOS, or Web—and pick the testing framework they want. This way, the tool can generate code based on their choices. These features are optional, giving users more flexibility without limiting the output.
