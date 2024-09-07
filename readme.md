@@ -9,6 +9,7 @@ I started by making a general description for the assignment so the prompt could
 - Upload multiple screenshots and view previews before submission.
 - Provide optional context to refine the generated test cases.
 - Displays generated test cases for each screenshot in a user-friendly format using Markdown.
+- Platform Selection and Testing Framework: Users can select the target platform—Android, iOS, or Web. Based on the selection, the tool will provide the relevant testing framework for code generation. This feature is optional, allowing users to tailor the output according to their preferences.
 
 <img src="/photos/assignment1.png" width="600px">
 <img src="/photos/assignment2.png" width="600px">
