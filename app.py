@@ -1,18 +1,15 @@
 from dotenv import load_dotenv
-load_dotenv()  # Load the environment variables
+load_dotenv()  
 
 import streamlit as st 
 import os
 import google.generativeai as genai 
 from PIL import Image
 
-# Configure the generative model with your API key from environment variables
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Load the generative model
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-# Function to get a response from the Gemini model
 def get_gemini_response(user_input, images, testing_type, code_generate):
     # Base prompt to be appended to every input
     base_prompt = (f"Given the provided screenshots of a digital product, "
@@ -26,7 +23,6 @@ def get_gemini_response(user_input, images, testing_type, code_generate):
                    f"Expected Result: Clearly describe what should happen if the feature is working as intended, "
                    f"such as UI updates, system messages, or successful data submission.\n\n")
 
-    # Append testing type and code generation details if they are not null
     if testing_type and code_generate:
         full_prompt = (f"{base_prompt}"
                        f"For testing type: {testing_type}\n"
@@ -39,7 +35,6 @@ def get_gemini_response(user_input, images, testing_type, code_generate):
     else:
         full_prompt = f"{base_prompt}{user_input}"
 
-    # If there are images, include them in the request
     if images:
         response = model.generate_content([full_prompt] + images)
     else:
@@ -66,20 +61,17 @@ uploaded_images = st.file_uploader("Choose one or more images", type=["jpg", "jp
 images = []
 
 if uploaded_images:
-    # Resize and store the uploaded images
     for uploaded_image in uploaded_images:
         img = Image.open(uploaded_image)
-        resized_img = img.resize((200, 200))  # Resize the image to 200x200 pixels
+        resized_img = img.resize((200, 200))  
         images.append(resized_img)
 
-    # Display images in rows, 3 per row
     for i in range(0, len(images), 3):
         cols = st.columns(3)
         for j, img in enumerate(images[i:i+3]):
             with cols[j]:
                 st.image(img, caption=f"Image {i + j + 1}", use_column_width=True)
 
-# Text input field for user query
 user_input = st.text_input("Enter a query (OPTIONAL):")
 
 # Submit button
